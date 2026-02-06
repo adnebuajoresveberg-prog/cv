@@ -11,20 +11,11 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Font Awesome (using CDN for icons, strictly NO SVG tags in body as per instructions, using <i> classes) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <!-- 
-        PALETTE: Electric Blue & Corporate Navy
-        Selected based on "Professional & Stylish" criteria.
-        Primary: #2563EB (Royal Blue)
-        Secondary: #06B6D4 (Cyan)
-        Dark: #1E3A8A (Navy)
-        Background: #F1F5F9 (Slate 100)
-    -->
 
     <style>
         body {
@@ -33,14 +24,14 @@
             color: #1e293b;
         }
 
-        /* Chart Container Styling - Mandatory per instructions */
+        /* Chart Container Styling */
         .chart-container {
             position: relative;
             width: 100%;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px; /* Base height */
+            height: 300px; 
             max-height: 400px;
         }
 
@@ -68,7 +59,6 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        /* Timeline styling without SVG */
         .timeline-item {
             position: relative;
             padding-left: 2rem;
@@ -90,43 +80,42 @@
             background-color: #2563EB;
             border: 2px solid white;
         }
+
+        /* Profile Image Styling */
+        .profile-image-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- HTML Comment: 
-        Source Material Analysis:
-        - Candidate: Ådne Buajore Sveberg
-        - Role: Technical Account Manager / Enterprise Sales
-        - Key Data: 
-            - Deals: 300k - 7.2M NOK
-            - Growth Context: 80M -> 140M
-            - Tools: Salesforce, HubSpot
-            - Clients: Statkraft, NAV, Equinor
-        
-        Narrative Plan:
-        1. Hero: Name & Clear Value Proposition.
-        2. Performance Metrics: The "Impact" section using big numbers and a bar chart for deal sizes.
-        3. Skills Radar: Visualizing the "Full-cycle AE mindset".
-        4. Experience & Context: Timeline of growth at Schibsted.
-        5. Client Portfolio: Showing the caliber of clients managed.
-        
-        Visualization Choices:
-        1. Deal Range (Bar Chart): To show the scale of responsibility. (Goal: Compare)
-        2. Revenue Context (Area Chart): To show the environment of growth he contributed to. (Goal: Change)
-        3. Competency Radar (Radar Chart): To show the balance between sales, tech, and soft skills. (Goal: Relationships/Organize)
-        
-        Confirmations:
-        - NO SVG used.
-        - NO Mermaid JS used.
-        - Chart.js used for data vis.
-        - Tailwind used for layout.
+         UPDATED: Added profile image section in Header.
+         Requires file named 'profile.png' in the same directory.
     -->
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
         <!-- Header / Hero Section -->
         <header class="text-center mb-16">
+            <!-- Profile Image -->
+            <div class="profile-image-container mb-6">
+                <!-- IMPORTANT: Ensure your image file is named 'profile.png' and is in the same folder -->
+                <img src="profile.png" alt="Ådne Buajore Sveberg" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Ådne+Sveberg&background=2563EB&color=fff&size=160'">
+            </div>
+
             <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
                 <span class="gradient-text">Ådne Buajore Sveberg</span>
             </h1>
@@ -136,6 +125,7 @@
                 <span class="px-4 py-2 bg-white rounded-full shadow-sm border border-slate-200"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>Norway (Hybrid/Remote)</span>
                 <span class="px-4 py-2 bg-white rounded-full shadow-sm border border-slate-200"><i class="fas fa-phone text-blue-600 mr-2"></i>+47 941 40 096</span>
                 <span class="px-4 py-2 bg-white rounded-full shadow-sm border border-slate-200"><i class="fas fa-envelope text-blue-600 mr-2"></i>adne.b.sveberg@hotmail.com</span>
+                <a href="https://www.linkedin.com/in/ådne-sveberg-91082b1a5" target="_blank" class="px-4 py-2 bg-white rounded-full shadow-sm border border-slate-200 hover:text-blue-700 transition-colors"><i class="fab fa-linkedin text-blue-600 mr-2"></i>LinkedIn</a>
             </div>
         </header>
 
