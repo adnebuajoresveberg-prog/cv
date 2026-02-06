@@ -81,11 +81,11 @@
             border: 2px solid white;
         }
 
-        /* Profile Image Styling */
+        /* Profile Image Styling - INCREASED SIZE */
         .profile-image-container {
             position: relative;
-            width: 160px;
-            height: 160px;
+            width: 280px; /* Increased from 160px */
+            height: 280px; /* Increased from 160px */
             margin: 0 auto;
         }
         
@@ -94,32 +94,27 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 8px solid white; /* Thicker border for better frame */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Stronger shadow */
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- HTML Comment: 
-         UPDATED: Added profile image section in Header.
-         Requires file named 'profile.png' in the same directory.
-    -->
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         <!-- Header / Hero Section -->
         <header class="text-center mb-16">
             <!-- Profile Image -->
-            <div class="profile-image-container mb-6">
+            <div class="profile-image-container mb-8">
                 <!-- IMPORTANT: Ensure your image file is named 'profile.png' and is in the same folder -->
-                <img src="profile.png" alt="Ådne Buajore Sveberg" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Ådne+Sveberg&background=2563EB&color=fff&size=160'">
+                <img src="profile.png" alt="Ådne Buajore Sveberg" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Ådne+Sveberg&background=2563EB&color=fff&size=280'">
             </div>
 
             <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
                 <span class="gradient-text">Ådne Buajore Sveberg</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-600 font-light mb-6">Enterprise B2B Sales & Technical Account Manager</p>
+            <p class="text-xl md:text-2xl text-slate-600 font-light mb-8">Enterprise B2B Sales & Technical Account Manager</p>
             
             <div class="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-500">
                 <span class="px-4 py-2 bg-white rounded-full shadow-sm border border-slate-200"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>Norway (Hybrid/Remote)</span>
@@ -131,9 +126,9 @@
 
         <!-- Executive Summary -->
         <section class="mb-16 max-w-4xl mx-auto">
-            <div class="card p-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+            <div class="card p-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white transform hover:scale-[1.01] transition-transform duration-300">
                 <h2 class="text-2xl font-bold mb-4 border-b border-blue-400 pb-2">Professional Profile</h2>
-                <p class="text-lg leading-relaxed opacity-90">
+                <p class="text-lg leading-relaxed opacity-95 font-light">
                     Driven Enterprise Sales professional with a proven track record at Schibsted Media. 
                     Specializing in subscription-based digital solutions, I own complex sales cycles from 
                     initial discovery to signed agreements. My approach combines value-based selling with 
