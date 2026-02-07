@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ådne Buajore Sveberg - Professional Profile</title>
+    <title>Ådne Buajore Sveberg - Enterprise Sales Profile</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,104 +14,75 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* --- CORE THEME --- */
+        :root {
+            --primary: #2563EB;
+            --secondary: #0F172A;
+            --accent: #06B6D4;
+            --bg-color: #F8FAFC;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8FAFC; 
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
             color: #334155;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Print Styles --- */
-        @media print {
-            .no-print { display: none !important; }
-            body { background-color: white; }
-            .card { box-shadow: none !important; border: 1px solid #e2e8f0; break-inside: avoid; }
-            .chart-container { height: 250px !important; }
+        h1, h2, h3, .stat-value {
+            font-family: 'Outfit', sans-serif;
         }
 
-        /* --- Chart Container Styling --- */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px; 
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container { height: 350px; }
+        /* --- GLASSMORPHISM CARDS --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.02), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.02),
+                0 0 0 1px rgba(0, 0, 0, 0.03);
+            border-radius: 1.25rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* --- Text Gradients & Typography --- */
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.05), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: #BFDBFE;
+        }
+
+        /* --- TYPOGRAPHY & GRADIENTS --- */
         .gradient-text {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        /* --- Modern Card Styling --- */
-        .card {
-            background: white;
-            border-radius: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
-            border-color: #bfdbfe; 
-        }
-
-        /* --- Animations --- */
-        @keyframes fade-in-up {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-enter {
-            animation: fade-in-up 0.6s ease-out forwards;
-            opacity: 0; 
-        }
         
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-
-        /* --- Timeline --- */
-        .timeline-item {
-            position: relative;
-            padding-left: 2.5rem;
-            border-left: 2px solid #E2E8F0;
-            padding-bottom: 2.5rem;
-        }
-        .timeline-item:last-child { border-left: 2px solid transparent; }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: white;
-            border: 4px solid #3B82F6;
-            box-shadow: 0 0 0 4px #DBEAFE; 
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #2563EB 100%);
         }
 
-        /* --- Profile Image Styling --- */
-        .profile-image-container {
+        /* --- PROFILE IMAGE FIX --- */
+        .profile-frame {
             position: relative;
-            width: 260px;
-            height: 260px;
+            width: 220px;
+            height: 220px;
             margin: 0 auto;
+            border-radius: 50%;
+            padding: 6px;
+            background: linear-gradient(135deg, #E2E8F0, #FFFFFF);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.2);
         }
         
         .profile-image {
@@ -120,313 +91,362 @@
             object-fit: cover;
             object-position: top center; 
             border-radius: 50%;
-            border: 6px solid white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 4px solid white;
         }
 
-        /* --- Badges --- */
-        .tech-badge {
-            background-color: #eff6ff;
-            color: #1d4ed8;
-            border: 1px solid #dbeafe;
-            transition: all 0.2s;
+        /* --- ANIMATED COUNTERS --- */
+        @property --num {
+            syntax: "<integer>";
+            initial-value: 0;
+            inherits: false;
         }
-        .tech-badge:hover {
-            background-color: #2563eb;
-            color: white;
+
+        /* --- PROCESS STEPS --- */
+        .process-step {
+            position: relative;
+        }
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: #E2E8F0;
+            z-index: -1;
+        }
+        .process-step:last-child::after { display: none; }
+        
+        @media (max-width: 768px) {
+            .process-step::after {
+                top: 100%;
+                left: 50%;
+                width: 2px;
+                height: 2rem;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* --- CHART CONTAINER --- */
+        .chart-container {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        /* --- PRINT --- */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            .glass-card { box-shadow: none; border: 1px solid #ccc; }
         }
     </style>
 </head>
-<body class="antialiased pb-12">
+<body class="antialiased pb-20">
 
-    <!-- Print Button -->
-    <button onclick="window.print()" class="no-print fixed bottom-8 right-8 z-50 bg-slate-800 text-white p-4 rounded-full shadow-lg hover:bg-slate-700 transition-colors flex items-center gap-2 font-medium" title="Save as PDF / Print">
-        <i class="fas fa-print"></i>
-        <span class="hidden md:inline">Save PDF</span>
+    <!-- Floating Action Button (Download) -->
+    <button onclick="window.print()" class="no-print fixed bottom-8 right-8 z-50 bg-slate-800 text-white p-4 rounded-full shadow-2xl hover:bg-slate-700 hover:scale-110 transition-all flex items-center gap-3 group">
+        <i class="fas fa-file-pdf text-xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-medium">Save as PDF</span>
     </button>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- Header / Hero Section -->
-        <header class="text-center mb-16 animate-enter">
-            <!-- Profile Image -->
-            <div class="profile-image-container mb-8 transition-transform hover:scale-105 duration-500">
-                <img src="profile.png" alt="Ådne Buajore Sveberg" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Ådne+Sveberg&background=2563EB&color=fff&size=260'">
+        <!-- HEADER SECTION -->
+        <header class="text-center mb-16 relative">
+            <div class="profile-frame mb-8 hover:scale-105 transition-transform duration-500">
+                <img src="profile.png" alt="Ådne Buajore Sveberg" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=Ådne+Sveberg&background=2563EB&color=fff&size=220'">
+                <div class="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full shadow-lg border-2 border-white" title="Verified Professional">
+                    <i class="fas fa-check"></i>
+                </div>
             </div>
 
-            <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-4 text-slate-900">
-                <span class="gradient-text">Ådne Buajore Sveberg</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-slate-900">
+                Ådne <span class="gradient-text">Sveberg</span>
             </h1>
-            <p class="text-xl text-slate-500 font-light mb-8 max-w-2xl mx-auto">
-                Enterprise B2B Sales & Technical Account Manager.<br>
-                <span class="text-sm uppercase tracking-widest text-blue-600 font-semibold mt-2 block">Results-Driven • Strategic • Relationship Builder</span>
+            <p class="text-xl md:text-2xl text-slate-500 font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+                <span class="font-medium text-slate-700">Enterprise B2B Sales & Technical Account Manager</span><br>
+                Driving growth through value-based selling and strategic stakeholder management.
             </p>
             
-            <div class="flex flex-wrap justify-center gap-3 text-sm font-medium text-slate-600">
-                <span class="px-5 py-2.5 bg-white rounded-full shadow-sm border border-slate-200 flex items-center gap-2">
-                    <i class="fas fa-map-marker-alt text-blue-500"></i> Norway (Hybrid/Remote)
+            <div class="flex flex-wrap justify-center gap-3 text-sm font-medium">
+                <a href="https://www.linkedin.com/in/ådne-sveberg-91082b1a5" target="_blank" class="px-6 py-3 bg-[#0077b5] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
+                    <i class="fab fa-linkedin text-lg"></i> Connect on LinkedIn
+                </a>
+                <a href="mailto:adne.b.sveberg@hotmail.com" class="px-6 py-3 bg-white text-slate-700 border border-slate-200 rounded-full shadow-sm hover:border-blue-300 hover:text-blue-600 transition-all flex items-center gap-2">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <span class="px-6 py-3 bg-white text-slate-500 border border-slate-200 rounded-full shadow-sm flex items-center gap-2 cursor-default">
+                    <i class="fas fa-map-marker-alt text-red-500"></i> Norway
                 </span>
-                <a href="tel:+4794140096" class="px-5 py-2.5 bg-white rounded-full shadow-sm border border-slate-200 hover:border-blue-300 transition-colors flex items-center gap-2">
-                    <i class="fas fa-phone text-blue-500"></i> +47 941 40 096
-                </a>
-                <a href="mailto:adne.b.sveberg@hotmail.com" class="px-5 py-2.5 bg-white rounded-full shadow-sm border border-slate-200 hover:border-blue-300 transition-colors flex items-center gap-2">
-                    <i class="fas fa-envelope text-blue-500"></i> adne.b.sveberg@hotmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/ådne-sveberg-91082b1a5" target="_blank" class="px-5 py-2.5 bg-[#0077b5] text-white rounded-full shadow-sm hover:bg-[#006396] transition-colors flex items-center gap-2">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
             </div>
         </header>
 
-        <!-- Executive Summary -->
-        <section class="mb-16 max-w-4xl mx-auto animate-enter delay-100">
-            <div class="card p-8 bg-gradient-to-r from-blue-600 to-indigo-700 text-white border-none shadow-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white opacity-10 rounded-full blur-xl"></div>
-                <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-32 h-32 bg-blue-400 opacity-20 rounded-full blur-xl"></div>
-                
-                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 relative z-10">
-                    <i class="fas fa-user-tie opacity-80"></i> Professional Profile
-                </h2>
-                <p class="text-lg leading-relaxed opacity-95 font-light relative z-10">
-                    Driven Enterprise Sales professional with a proven track record at Schibsted Media. 
-                    Specializing in subscription-based digital solutions, I own complex sales cycles from 
-                    initial discovery to signed agreements. My approach combines value-based selling with 
-                    structured pipeline management, serving high-stakes stakeholders in procurement, IT, and executive roles.
-                </p>
-            </div>
-        </section>
-
-        <!-- KPI Dashboard Section -->
-        <section class="mb-16 animate-enter delay-200">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="h-8 w-1 bg-blue-600 rounded-full"></div>
-                <h2 class="text-2xl font-bold text-slate-800">Key Performance Indicators</h2>
-            </div>
-
+        <!-- KPI DASHBOARD (ANIMATED) -->
+        <section class="mb-20">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card p-6 flex flex-col items-center justify-center text-center group">
-                    <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-trophy text-xl"></i>
+                <!-- KPI 1 -->
+                <div class="glass-card p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-hand-holding-dollar text-8xl text-blue-600"></i>
                     </div>
-                    <div class="text-4xl font-bold text-slate-800 mb-1">7.2M</div>
-                    <div class="text-xs font-bold text-blue-600 uppercase tracking-wider">NOK - Max Deal Value</div>
-                    <p class="text-slate-500 mt-2 text-sm">Closed-won value for top-tier enterprise contracts.</p>
+                    <span class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2">Max Contract Value</span>
+                    <div class="text-5xl font-extrabold text-slate-800 mb-2 flex items-baseline gap-1">
+                        <span id="counter1">0</span><span class="text-2xl text-blue-600">M</span>
+                    </div>
+                    <p class="text-slate-500 text-sm">Strategic involvement in Top-Tier Enterprise Agreements</p>
                 </div>
 
-                <div class="card p-6 flex flex-col items-center justify-center text-center group">
-                    <div class="w-12 h-12 bg-cyan-50 rounded-full flex items-center justify-center text-cyan-600 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-sync-alt text-xl"></i>
+                <!-- KPI 2 -->
+                <div class="glass-card p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-chart-line text-8xl text-green-600"></i>
                     </div>
-                    <div class="text-4xl font-bold text-slate-800 mb-1">Full-Cycle</div>
-                    <div class="text-xs font-bold text-cyan-600 uppercase tracking-wider">Sales Ownership</div>
-                    <p class="text-slate-500 mt-2 text-sm">From discovery & stakeholder alignment to negotiation & closing.</p>
+                    <span class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2">Revenue Growth</span>
+                    <div class="text-5xl font-extrabold text-slate-800 mb-2 flex items-baseline gap-1">
+                        +<span id="counter2">0</span><span class="text-2xl text-green-600">%</span>
+                    </div>
+                    <p class="text-slate-500 text-sm">Schibsted Unit Scaling (80M &#8594; 140M)</p>
                 </div>
 
-                <div class="card p-6 flex flex-col items-center justify-center text-center group">
-                    <div class="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-chart-line text-xl"></i>
+                <!-- KPI 3 -->
+                <div class="glass-card p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-briefcase text-8xl text-purple-600"></i>
                     </div>
-                    <div class="text-4xl font-bold text-slate-800 mb-1">75%</div>
-                    <div class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Revenue Context Growth</div>
-                    <p class="text-slate-500 mt-2 text-sm">Part of the scaling journey growing annual revenue from ~80M to ~140M NOK.</p>
+                    <span class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2">Deal Range</span>
+                    <div class="text-5xl font-extrabold text-slate-800 mb-2 flex items-baseline gap-1">
+                        <span class="text-2xl text-purple-600">Full</span><span>Cycle</span>
+                    </div>
+                    <p class="text-slate-500 text-sm">From Prospecting to Closing & Expansion</p>
                 </div>
             </div>
         </section>
 
-        <!-- Visualization Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 animate-enter delay-300">
-            <!-- Chart 1: Deal Size -->
-            <div class="card p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="text-lg font-bold text-slate-800">Deal Size Spectrum</h3>
-                        <p class="text-sm text-slate-500">Range of closed-won deals</p>
+        <!-- MAIN GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+            
+            <!-- LEFT COLUMN (Charts & Visuals) -->
+            <div class="lg:col-span-7 space-y-8">
+                
+                <!-- GROWTH CHART -->
+                <div class="glass-card p-8">
+                    <div class="flex justify-between items-end mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">The Scaling Journey</h3>
+                            <p class="text-sm text-slate-500">Revenue trajectory during tenure at Schibsted Bedrift</p>
+                        </div>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                            <i class="fas fa-arrow-up mr-1"></i> Scaling Phase
+                        </span>
                     </div>
-                    <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-medium">NOK</span>
+                    <div class="chart-container">
+                        <canvas id="growthChart"></canvas>
+                    </div>
                 </div>
-                <div class="chart-container">
-                    <canvas id="dealSizeChart"></canvas>
+
+                <!-- SALES METHODOLOGY VISUAL -->
+                <div class="glass-card p-8 bg-white">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6">My Sales Methodology</h3>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+                        
+                        <div class="process-step text-center w-full group">
+                            <div class="w-14 h-14 mx-auto bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-3 group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-sm">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm">Discovery</h4>
+                            <p class="text-xs text-slate-500 mt-1">Value Mapping</p>
+                        </div>
+
+                        <div class="process-step text-center w-full group">
+                            <div class="w-14 h-14 mx-auto bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-3 group-hover:bg-purple-600 group-hover:text-white transition-colors shadow-sm">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm">Alignment</h4>
+                            <p class="text-xs text-slate-500 mt-1">Stakeholder Mgmt</p>
+                        </div>
+
+                        <div class="process-step text-center w-full group">
+                            <div class="w-14 h-14 mx-auto bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-3 group-hover:bg-orange-600 group-hover:text-white transition-colors shadow-sm">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm">Negotiation</h4>
+                            <p class="text-xs text-slate-500 mt-1">Business Case</p>
+                        </div>
+
+                        <div class="process-step text-center w-full group">
+                            <div class="w-14 h-14 mx-auto bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-3 group-hover:bg-green-600 group-hover:text-white transition-colors shadow-sm">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 text-sm">Close</h4>
+                            <p class="text-xs text-slate-500 mt-1">Signed Deal</p>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
 
-            <!-- Chart 2: Radar -->
-            <div class="card p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="text-lg font-bold text-slate-800">Core Competencies</h3>
-                        <p class="text-sm text-slate-500">Skillset Balance</p>
+            <!-- RIGHT COLUMN (Experience & Text) -->
+            <div class="lg:col-span-5 space-y-8">
+                
+                <!-- EXPERIENCE CARD -->
+                <div class="glass-card p-8 border-l-4 border-blue-600">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-blue-100 rounded-lg text-blue-700">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">Experience</h3>
                     </div>
-                    <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-medium">Profile</span>
+
+                    <!-- Job 1 -->
+                    <div class="mb-8 relative pl-6 border-l-2 border-slate-200">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-2 border-white shadow"></div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h4 class="font-bold text-slate-800 text-lg">Technical Account Manager</h4>
+                            <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded">2022 - Now</span>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-500 mb-3">Schibsted Media (Enterprise)</p>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                            Owning complex sales cycles. Directly managed and closed deals up to <span class="font-bold text-slate-800">7.2 MNOK</span> (sole ownership).
+                        </p>
+                        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
+                            <p class="text-xs text-blue-800 font-medium">
+                                <i class="fas fa-star mr-1"></i> Strategic Highlight:
+                            </p>
+                            <p class="text-xs text-slate-600 mt-1">
+                                Key contributor to strategic enterprise agreements valued at <span class="font-bold text-slate-900">9.5 MNOK</span> (e.g. DNB).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="relative pl-6 border-l-2 border-slate-200">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-2 border-white"></div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h4 class="font-bold text-slate-700">Customer Success Manager</h4>
+                            <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded">2019 - 2022</span>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-500 mb-3">Schibsted Media</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Key driver in portfolio expansion during a critical scaling phase (80M &#8594; 140M). Focused on retention and upsell.
+                        </p>
+                    </div>
                 </div>
-                <div class="chart-container">
-                    <canvas id="skillsRadar"></canvas>
+
+                <!-- TECH STACK (Modern) -->
+                <div class="glass-card p-8">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fas fa-layer-group text-slate-400"></i> Tool Stack
+                    </h3>
+                    <div class="flex gap-4">
+                        <!-- Salesforce -->
+                        <div class="flex-1 bg-white border border-blue-100 p-3 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm hover:shadow-md transition-shadow">
+                            <i class="fab fa-salesforce text-3xl text-[#00A1E0]"></i>
+                            <span class="text-xs font-bold text-slate-600">Salesforce</span>
+                        </div>
+                        <!-- HubSpot -->
+                        <div class="flex-1 bg-white border border-orange-100 p-3 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm hover:shadow-md transition-shadow">
+                            <i class="fab fa-hubspot text-3xl text-[#ff7a59]"></i>
+                            <span class="text-xs font-bold text-slate-600">HubSpot</span>
+                        </div>
+                        <!-- Office/General -->
+                        <div class="flex-1 bg-white border border-slate-100 p-3 rounded-xl flex flex-col items-center justify-center gap-2 shadow-sm hover:shadow-md transition-shadow">
+                            <i class="fas fa-file-excel text-3xl text-green-600"></i>
+                            <span class="text-xs font-bold text-slate-600">Office 365</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
-        <!-- Experience Narrative -->
-        <section class="mb-16 animate-enter delay-400">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="h-8 w-1 bg-blue-600 rounded-full"></div>
-                <h2 class="text-2xl font-bold text-slate-800">Professional Journey</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Timeline -->
-                <div class="lg:col-span-2">
-                    
-                    <!-- Role 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="card p-6 hover:border-blue-200 transition-colors">
-                            <div class="flex justify-between flex-wrap gap-2 mb-2 items-center">
-                                <h3 class="text-xl font-bold text-slate-800">Technical Account Manager (Enterprise Sales)</h3>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">2022 – Present</span>
-                            </div>
-                            <p class="text-sm font-semibold text-blue-600 mb-4">Schibsted Media (Hybrid/Remote)</p>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex gap-2">
-                                    <i class="fas fa-check text-blue-500 mt-1"></i>
-                                    <span><strong>End-to-End Ownership:</strong> Managed complex sales cycles including discovery, business case building, and high-level negotiations.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i class="fas fa-check text-blue-500 mt-1"></i>
-                                    <span><strong>Key Clients:</strong> Statkraft, NAV, Equinor, Stortinget, Riksrevisjonen.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i class="fas fa-check text-blue-500 mt-1"></i>
-                                    <span><strong>Pipeline Mastery:</strong> Structured Salesforce management with reliable forecasting and follow-up cadence.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i class="fas fa-check text-blue-500 mt-1"></i>
-                                    <span><strong>Strategic Impact:</strong> Built value narratives for C-level decision makers.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Role 2 -->
-                    <div class="timeline-item border-l-slate-200">
-                        <div class="timeline-dot" style="border-color: #94a3b8; box-shadow: none;"></div>
-                        <div class="card p-6 opacity-90 hover:opacity-100">
-                            <div class="flex justify-between flex-wrap gap-2 mb-2 items-center">
-                                <h3 class="text-lg font-bold text-slate-700">Customer Success Manager</h3>
-                                <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">2019 – 2022</span>
-                            </div>
-                            <p class="text-sm font-semibold text-slate-500 mb-4">Schibsted Media</p>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex gap-2">
-                                    <i class="fas fa-check text-slate-400 mt-1"></i>
-                                    <span><strong>Portfolio Management:</strong> Drove retention and expansion through structured engagement plans.</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i class="fas fa-check text-slate-400 mt-1"></i>
-                                    <span><strong>Scaling Support:</strong> Integral part of the team during a growth phase from 80M to 140M NOK revenue.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+        <!-- CLIENT PORTFOLIO (Marquee Style) -->
+        <section class="glass-card p-8 mb-16">
+            <h3 class="text-center text-slate-400 text-sm font-bold uppercase tracking-widest mb-8">Trusted by Norway's Key Players</h3>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 items-center opacity-80">
+                <div class="flex items-center gap-2 text-slate-700 font-bold text-xl grayscale hover:grayscale-0 hover:scale-110 transition-all cursor-default">
+                    <i class="fas fa-building-columns text-green-700"></i> DNB
                 </div>
-
-                <!-- Growth Chart -->
-                <div class="lg:col-span-1">
-                    <div class="card p-6 h-full flex flex-col bg-slate-800 text-white border-none shadow-xl">
-                        <h3 class="text-lg font-bold mb-2">Growth Context</h3>
-                        <p class="text-sm text-slate-300 mb-6">Business Unit Revenue Trajectory</p>
-                        
-                        <div class="chart-container flex-grow" style="max-height: 250px;">
-                            <canvas id="growthChart"></canvas>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-                            <p class="text-xs text-blue-200 font-semibold uppercase mb-1">Insight</p>
-                            <p class="text-sm text-slate-100 italic">"Operating successfully in a high-growth environment requires adaptability and a focus on scalable sales processes."</p>
-                        </div>
-                    </div>
+                <div class="flex items-center gap-2 text-slate-700 font-bold text-xl grayscale hover:grayscale-0 hover:scale-110 transition-all cursor-default">
+                    <i class="fas fa-bolt text-yellow-500"></i> Statkraft
+                </div>
+                <div class="flex items-center gap-2 text-slate-700 font-bold text-xl grayscale hover:grayscale-0 hover:scale-110 transition-all cursor-default">
+                    <i class="fas fa-oil-well text-slate-800"></i> Equinor
+                </div>
+                <div class="flex items-center gap-2 text-slate-700 font-bold text-xl grayscale hover:grayscale-0 hover:scale-110 transition-all cursor-default">
+                    <i class="fas fa-users text-red-600"></i> NAV
+                </div>
+                <div class="flex items-center gap-2 text-slate-700 font-bold text-xl grayscale hover:grayscale-0 hover:scale-110 transition-all cursor-default">
+                    <i class="fas fa-landmark text-yellow-600"></i> Stortinget
+                </div>
+                <div class="flex items-center gap-2 text-slate-700 font-bold text-xl grayscale hover:grayscale-0 hover:scale-110 transition-all cursor-default">
+                    <i class="fas fa-search text-green-600"></i> Riksrevisjonen
                 </div>
             </div>
         </section>
 
-        <!-- Client Portfolio Section -->
-        <section class="mb-16 animate-enter delay-400">
-            <div class="card p-10 bg-white">
-                <h2 class="text-xl font-bold text-center text-slate-800 mb-8">Trusted by Strategic Stakeholders</h2>
-                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 opacity-80">
-                    <!-- Client "Logos" -->
-                    <div class="flex items-center gap-2 text-slate-600 font-bold text-lg grayscale hover:grayscale-0 transition-all duration-300">
-                        <i class="fas fa-bolt text-yellow-500"></i> Statkraft
-                    </div>
-                    <div class="h-8 w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2 text-slate-600 font-bold text-lg grayscale hover:grayscale-0 transition-all duration-300">
-                        <i class="fas fa-oil-well text-slate-800"></i> Equinor
-                    </div>
-                    <div class="h-8 w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2 text-slate-600 font-bold text-lg grayscale hover:grayscale-0 transition-all duration-300">
-                        <i class="fas fa-users text-red-600"></i> NAV
-                    </div>
-                    <div class="h-8 w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2 text-slate-600 font-bold text-lg grayscale hover:grayscale-0 transition-all duration-300">
-                        <i class="fas fa-landmark text-yellow-600"></i> Stortinget
-                    </div>
-                    <div class="h-8 w-px bg-slate-200 hidden md:block"></div>
-                    <div class="flex items-center gap-2 text-slate-600 font-bold text-lg grayscale hover:grayscale-0 transition-all duration-300">
-                        <i class="fas fa-search text-green-600"></i> Riksrevisjonen
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Tools -->
-        <footer class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-enter delay-400">
-            <div class="card p-6">
-                <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
-                    <i class="fas fa-graduation-cap text-blue-500"></i> Education
-                </h3>
-                <div class="pl-4 border-l-2 border-blue-100">
-                    <strong class="block text-slate-800">BI Norwegian Business School</strong>
-                    <span class="text-sm text-slate-500">BSc Business Administration (In Progress)</span>
-                </div>
-                <p class="text-sm text-slate-500 italic mt-3 bg-slate-50 p-3 rounded">
-                    Pursued alongside full-time enterprise sales role, demonstrating high capacity and time management.
-                </p>
-            </div>
-
-            <div class="card p-6">
-                <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
-                    <i class="fas fa-laptop-code text-blue-500"></i> Tech Stack & Languages
-                </h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-4 py-1.5 tech-badge rounded-full text-sm font-semibold">Salesforce</span>
-                    <span class="px-4 py-1.5 tech-badge rounded-full text-sm font-semibold">HubSpot</span>
-                    <span class="px-4 py-1.5 bg-green-50 text-green-700 border border-green-100 rounded-full text-sm font-semibold">Norwegian (Native)</span>
-                    <span class="px-4 py-1.5 bg-purple-50 text-purple-700 border border-purple-100 rounded-full text-sm font-semibold">English (Business Fluent)</span>
-                </div>
-            </div>
+        <!-- FOOTER -->
+        <footer class="text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2024 Ådne Buajore Sveberg. All rights reserved.</p>
         </footer>
 
     </div>
 
-    <!-- Chart Scripts -->
+    <!-- SCRIPTS -->
     <script>
-        // Common Chart Defaults
-        Chart.defaults.font.family = "'Inter', sans-serif";
-        Chart.defaults.color = '#64748b';
-        Chart.defaults.scale.grid.color = '#f1f5f9';
+        // --- 1. ANIMATED COUNTERS LOGIC ---
+        function animateValue(obj, start, end, duration, isDecimal) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                let value = progress * (end - start) + start;
+                
+                if (isDecimal) {
+                    obj.innerHTML = value.toFixed(1);
+                } else {
+                    obj.innerHTML = Math.floor(value);
+                }
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
 
-        // 1. Deal Size Spectrum
-        const ctxDeal = document.getElementById('dealSizeChart').getContext('2d');
-        new Chart(ctxDeal, {
-            type: 'bar',
+        // Trigger animations when page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            animateValue(document.getElementById("counter1"), 0, 9.5, 2000, true); // UPDATED TO 9.5M
+            animateValue(document.getElementById("counter2"), 0, 75, 2500, false);  
+        });
+
+        // --- 2. GROWTH CHART CONFIG ---
+        const ctxGrowth = document.getElementById('growthChart').getContext('2d');
+        
+        // Gradient for the chart
+        const gradient = ctxGrowth.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(37, 99, 235, 0.4)'); // Blue top
+        gradient.addColorStop(1, 'rgba(37, 99, 235, 0.0)'); // Transparent bottom
+
+        new Chart(ctxGrowth, {
+            type: 'line',
             data: {
-                labels: ['Minimum', 'Typical', 'Key Wins', 'Max Deal'],
+                // ABSTRACT LABELS - Solves the "Specific Year" concern
+                labels: ['Start of Tenure', 'Scaling Phase I', 'Scaling Phase II', 'Present'],
                 datasets: [{
-                    label: 'Deal Value (NOK)',
-                    data: [300000, 2500000, 5000000, 7200000],
-                    backgroundColor: [ '#bfdbfe', '#60a5fa', '#2563eb', '#1e40af' ],
-                    borderRadius: 6,
-                    borderSkipped: false,
-                    barPercentage: 0.6
+                    label: 'Unit Revenue Growth',
+                    data: [80, 95, 115, 140], // The data points
+                    borderColor: '#2563EB',
+                    backgroundColor: gradient,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#2563EB',
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    fill: true,
+                    tension: 0.4 // Smooth curve
                 }]
             },
             options: {
@@ -435,124 +455,36 @@
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: '#1e293b',
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
                         padding: 12,
+                        titleColor: '#94A3B8',
+                        titleFont: { size: 10 },
+                        bodyFont: { size: 14, weight: 'bold' },
+                        displayColors: false,
                         callbacks: {
+                            // Custom tooltip label
                             label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) { label += ': '; }
-                                if (context.parsed.y !== null) {
-                                    label += new Intl.NumberFormat('no-NO', { style: 'currency', currency: 'NOK', maximumSignificantDigits: 2 }).format(context.parsed.y);
-                                }
-                                return label;
+                                return context.parsed.y + ' MNOK Annual Revenue';
+                            },
+                            title: function(tooltipItems) {
+                                return tooltipItems[0].label.toUpperCase();
                             }
                         }
                     }
                 },
                 scales: {
                     y: {
-                        beginAtZero: true,
-                        grid: { borderDash: [4, 4] },
-                        ticks: { callback: function(value) { return (value / 1000000) + 'M'; }, font: { size: 11 } },
-                        border: { display: false }
+                        display: false, // Hide Y axis for cleaner look
+                        min: 60
                     },
                     x: {
                         grid: { display: false },
-                        ticks: { font: { size: 11, weight: '500' } },
+                        ticks: {
+                            color: '#64748B',
+                            font: { size: 11, weight: '600' }
+                        },
                         border: { display: false }
                     }
-                }
-            }
-        });
-
-        // 2. Skills Radar
-        const ctxSkills = document.getElementById('skillsRadar').getContext('2d');
-        new Chart(ctxSkills, {
-            type: 'radar',
-            data: {
-                labels: [
-                    ['Pipeline', 'Management'], 
-                    ['Strategic', 'Negotiation'], 
-                    ['Value-Based', 'Selling'], 
-                    ['Stakeholder', 'Alignment'], 
-                    ['Salesforce', '& CRM'], 
-                    ['Discovery', 'Process']
-                ],
-                datasets: [{
-                    label: 'Proficiency',
-                    data: [90, 85, 95, 88, 80, 92],
-                    fill: true,
-                    backgroundColor: 'rgba(37, 99, 235, 0.15)',
-                    borderColor: '#2563EB',
-                    pointBackgroundColor: '#2563EB',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#2563EB',
-                    pointRadius: 4,
-                    pointHoverRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: { color: '#e2e8f0' },
-                        grid: { color: '#e2e8f0' },
-                        pointLabels: { font: { size: 11, weight: '600' }, color: '#475569' },
-                        suggestedMin: 0,
-                        suggestedMax: 100,
-                        ticks: { display: false, stepSize: 20 }
-                    }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { backgroundColor: '#1e293b' }
-                }
-            }
-        });
-
-        // 3. Growth Context
-        const ctxGrowth = document.getElementById('growthChart').getContext('2d');
-        new Chart(ctxGrowth, {
-            type: 'line',
-            data: {
-                labels: ['Start', 'Year 1', 'Year 2', 'Current'],
-                datasets: [{
-                    label: 'Revenue (MNOK)',
-                    data: [80, 95, 115, 140],
-                    fill: true,
-                    borderColor: '#60a5fa', 
-                    backgroundColor: (context) => {
-                        const ctx = context.chart.ctx;
-                        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                        gradient.addColorStop(0, 'rgba(96, 165, 250, 0.5)');
-                        gradient.addColorStop(1, 'rgba(96, 165, 250, 0.0)');
-                        return gradient;
-                    },
-                    tension: 0.4,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#60a5fa',
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#fff',
-                        titleColor: '#0f172a',
-                        bodyColor: '#0f172a',
-                        borderColor: '#e2e8f0',
-                        borderWidth: 1,
-                        callbacks: { label: function(context) { return context.parsed.y + ' MNOK'; } }
-                    }
-                },
-                scales: {
-                    y: { display: false, beginAtZero: false, suggestedMin: 60 },
-                    x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } }, border: { display: false } }
                 }
             }
         });
